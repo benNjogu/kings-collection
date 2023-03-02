@@ -1,5 +1,40 @@
 import { images } from "../constants";
 
+const SECTIONS = [
+  {
+    title: "hats",
+    imageUrl: images.hat,
+    id: 1,
+    linkUrl: "shop/hats",
+  },
+  {
+    title: "jackets",
+    imageUrl: images.jackets,
+    id: 2,
+    linkUrl: "shop/jackets",
+  },
+  {
+    title: "sneakers",
+    imageUrl: images.sneakers,
+    id: 3,
+    linkUrl: "shop/sneakers",
+  },
+  {
+    title: "womens",
+    imageUrl: images.womens,
+    id: 4,
+    size: "large",
+    linkUrl: "shop/womens",
+  },
+  {
+    title: "mens",
+    imageUrl: images.mens,
+    size: "large",
+    id: 5,
+    linkUrl: "shop/mens",
+  },
+];
+
 const SHOP_DATA = [
   {
     id: 1,
@@ -247,3 +282,5 @@ const SHOP_DATA = [
     ],
   },
 ];
+
+export { SECTIONS, SHOP_DATA };

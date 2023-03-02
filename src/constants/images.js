@@ -6,7 +6,7 @@ import mens from "../assets/images/mens.jpg";
 
 import brown_brim from "../assets/images/brown_brim.png";
 import bluebeanie from "../assets/images/beanie.png";
-import brown_cowboy from "../assets/images/cowboy.png";
+import brown_cowboy from "../assets/images/cowboy.jpg";
 import grey_brim from "../assets/images/brim.webp";
 import green_beanie from "../assets/images/green_beanie.png";
 import palm_tree_cap from "../assets/images/palm_tree_cap.png";
