@@ -1,3 +1,5 @@
+import logo from "../assets/logo/crown.svg";
+
 import hat from "../assets/images/hats.png";
 import jackets from "../assets/images/jackets.png";
 import sneakers from "../assets/images/sneakers.jpg";
@@ -45,6 +47,8 @@ import jean_longsleeve from "../assets/images/jean_longsleeve.webp";
 import burgundy from "../assets/images/burgundy.png";
 
 export default {
+  logo,
+
   hat,
   jackets,
   sneakers,
