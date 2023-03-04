@@ -1,4 +1,3 @@
-import { initializeApp } from "firebase/app";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import "firebase/compat/firestore";
@@ -13,6 +12,31 @@ const config = {
   messagingSenderId: "992268957689",
   appId: "1:992268957689:web:de4be0b3a6c44841482f28",
   measurementId: "G-XNWJ9B6M42",
+};
+
+export const createUserProfileDocument = async (userAuth, additionalData) => {
+  if (!userAuth) return;
+
+  const userRef = firestore.doc(`users/${userAuth.uid}`);
+  const snapShot = await userRef.get();
+
+  if (!snapShot.exists) {
+    const { displayName, email } = userAuth;
+    const createdAt = new Date();
+
+    try {
+      await userRef.set({
+        displayName,
+        email,
+        createdAt,
+        ...additionalData,
+      });
+    } catch (error) {
+      console.log("error creating user", error);
+    }
+  }
+
+  return userRef;
 };
 
 firebase.initializeApp(config);
