@@ -1,5 +1,4 @@
 import images from "./images";
+import { userActionTypes } from "./actionConstants";
 
-import SET_CURRENT_USER from "./actionConstants";
-
-export { images, SET_CURRENT_USER };
+export { images, userActionTypes };
