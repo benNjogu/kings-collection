@@ -7,14 +7,6 @@ import { selectCollections } from "../../redux/shop/shop.selectors";
 
 import "./collection.styles.scss";
 
-const COLLECTION_ID_MAP = {
-  hats: 1,
-  sneakers: 2,
-  jackets: 3,
-  womens: 4,
-  mens: 5,
-};
-
 const CollectionPage = ({ collections }) => {
   const { collectionId } = useParams();
 
@@ -24,12 +16,8 @@ const CollectionPage = ({ collections }) => {
     };
   }, [collectionId]);
 
-  console.log(collections);
-
   const getCollection = () => {
-    const collection = collections.find(
-      (collection) => collection.id === COLLECTION_ID_MAP[collectionId]
-    );
+    const collection = collections[collectionId];
 
     return collection;
   };
