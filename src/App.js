@@ -13,6 +13,7 @@ import Header from "./components/header/header.componet";
 import ShopPage from "./pages/shop/shop.component";
 import HomePage from "./pages/homepage/homepage.component";
 import CheckOutPage from "./pages/checkout/checkout.component";
+import CollectionPage from "./pages/collection/collection.component";
 import "./App.css";
 
 class App extends Component {
@@ -46,8 +47,9 @@ class App extends Component {
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/shop" element={<ShopPage />} />
-          <Route path="/checkout" element={<CheckOutPage />} />
+          <Route path="/shop/" element={<ShopPage />} />
+          <Route path="/checkout/" element={<CheckOutPage />} />
+          <Route path="/shop/:collectionId" element={<CollectionPage />} />
           <Route
             exact
             path="/signin"
