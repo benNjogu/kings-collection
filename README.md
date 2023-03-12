@@ -11,3 +11,7 @@ An e-commerce project to learn react
 ![kings2](https://user-images.githubusercontent.com/60463836/223704122-becae849-501d-4af3-9e57-233fcd3ae6db.png)
 
 ![kings3](https://user-images.githubusercontent.com/60463836/223704134-8ff0083a-3b84-4ae6-9030-a78dd22d2d22.png)
+
+![kings1](https://user-images.githubusercontent.com/60463836/224545356-ff1ccfbb-c203-4c90-a4ec-a21ab99afa39.PNG)
+
+![kings2](https://user-images.githubusercontent.com/60463836/224545363-176e288f-6f58-43a5-bc84-b3b4a33c4978.PNG)
