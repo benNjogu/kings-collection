@@ -3,7 +3,11 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
+import {
+  auth,
+  createUserProfileDocument,
+  addCollectionAndDocuments,
+} from "./firebase/firebase.utils";
 
 import { setCurrentUser } from "./redux/user/user.actions";
 import { selectCurrentUser } from "./redux/user/user.selector";
@@ -18,6 +22,10 @@ import CollectionPage from "./pages/collection/collection.component";
 import "./App.css";
 
 class App extends Component {
+  state = {
+    loading: true,
+  };
+
   unsubscribeFromAuth = null;
 
   componentDidMount() {

@@ -17,7 +17,7 @@ const CollectionPage = ({ collections }) => {
   }, [collectionId]);
 
   const getCollection = () => {
-    const collection = collections[collectionId];
+    const collection = collections ? collections[collectionId] : null;
 
     return collection;
   };

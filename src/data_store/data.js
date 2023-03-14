@@ -21,7 +21,7 @@ const SECTIONS = [
   },
   {
     title: "womens",
-    imageUrl: images.womens,
+    imageUrl: images.red_dots,
     id: 4,
     size: "large",
     linkUrl: "shop/womens",
