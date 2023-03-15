@@ -3,11 +3,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import {
-  auth,
-  createUserProfileDocument,
-  addCollectionAndDocuments,
-} from "./firebase/firebase.utils";
+import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 
 import { setCurrentUser } from "./redux/user/user.actions";
 import { selectCurrentUser } from "./redux/user/user.selector";
@@ -17,15 +13,11 @@ import Header from "./components/header/header.componet";
 import ShopPage from "./pages/shop/shop.component";
 import HomePage from "./pages/homepage/homepage.component";
 import CheckOutPage from "./pages/checkout/checkout.component";
-import CollectionPage from "./pages/collection/collection.component";
+import CollectionsPageContainer from "./pages/collection/collection.container";
 
 import "./App.css";
 
 class App extends Component {
-  state = {
-    loading: true,
-  };
-
   unsubscribeFromAuth = null;
 
   componentDidMount() {
@@ -58,7 +50,10 @@ class App extends Component {
           <Route path="/" element={<HomePage />} />
           <Route path="/shop/" element={<ShopPage />} />
           <Route path="/checkout/" element={<CheckOutPage />} />
-          <Route path="/shop/:collectionId" element={<CollectionPage />} />
+          <Route
+            path="/shop/:collectionId"
+            element={<CollectionsPageContainer />}
+          />
           <Route
             exact
             path="/signin"
