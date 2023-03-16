@@ -5,7 +5,6 @@ import "./menu-item.styles.scss";
 
 const MenuItem = ({ title, imageUrl, size, linkUrl }) => {
   const navigate = useNavigate();
-  console.log(imageUrl);
 
   const handleClick = () => {
     navigate(linkUrl);
