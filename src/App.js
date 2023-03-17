@@ -1,4 +1,4 @@
-import { Component } from "react";
+import { useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
@@ -15,46 +15,33 @@ import CollectionsPageContainer from "./pages/collection/collection.container";
 
 import "./App.css";
 
-class App extends Component {
-  unsubscribeFromAuth = null;
-
-  componentDidMount() {
-    const { checkUserSession } = this.props;
+const App = ({ checkUserSession, currentUser }) => {
+  useEffect(() => {
     checkUserSession();
-  }
+  }, [checkUserSession]);
 
-  componentWillUnmount() {
-    this.unsubscribeFromAuth();
-  }
-
-  render() {
-    return (
-      <div>
-        <Header />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/shop/" element={<ShopPage />} />
-          <Route path="/checkout/" element={<CheckOutPage />} />
-          <Route
-            path="/shop/:collectionId"
-            element={<CollectionsPageContainer />}
-          />
-          <Route
-            exact
-            path="/signin"
-            element={
-              this.props.currentUser ? (
-                <Navigate replace to="/" />
-              ) : (
-                <SignInAndSignUp />
-              )
-            }
-          />
-        </Routes>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <Header />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/shop/" element={<ShopPage />} />
+        <Route path="/checkout/" element={<CheckOutPage />} />
+        <Route
+          path="/shop/:collectionId"
+          element={<CollectionsPageContainer />}
+        />
+        <Route
+          exact
+          path="/signin"
+          element={
+            currentUser ? <Navigate replace to="/" /> : <SignInAndSignUp />
+          }
+        />
+      </Routes>
+    </div>
+  );
+};
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
