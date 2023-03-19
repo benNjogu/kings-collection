@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -10,44 +10,35 @@ import CollectionsContext from "../../contexts/collections/collections.context";
 import "./collection.styles.scss";
 
 const CollectionPage = () => {
+  const collections = useContext(CollectionsContext);
   const { collectionId } = useParams();
-  console.log(collectionId);
 
-  // useEffect(() => {
-  //   getCollection();
-  // }, [collectionId]);
+  useEffect(() => {
+    getCollection();
+  }, [collectionId]);
 
-  // const getCollection = () => {
-  //   const collection = collections ? collections[collectionId] : null;
+  const getCollection = () => {
+    const collection = collections ? collections[collectionId] : null;
 
-  //   return collection;
-  // };
+    return collection;
+  };
 
-  // const { title, items } = getCollection();
+  const { title, items } = getCollection();
 
   return (
-    <CollectionsContext.Consumer>
-      {(collections) => {
-        const collection = collections[collectionId];
-        const { title, items } = collection;
-
-        return (
-          <div className="collection-page">
-            <h2 className="title">{title}</h2>
-            <div className="items">
-              {items.map((item) => (
-                <CollectionItem key={item.id} item={item} />
-              ))}
-            </div>
-          </div>
-        );
-      }}
-    </CollectionsContext.Consumer>
+    <div className="collection-page">
+      <h2 className="title">{title}</h2>
+      <div className="items">
+        {items.map((item) => (
+          <CollectionItem key={item.id} item={item} />
+        ))}
+      </div>
+    </div>
   );
 };
 
-// const mapStateToProps = (state) => ({
-//   collections: selectCollections(state),
-// });
+const mapStateToProps = (state) => ({
+  collections: selectCollections(state),
+});
 
-export default CollectionPage;
+export default connect(mapStateToProps)(CollectionPage);
