@@ -28,6 +28,7 @@ const App = ({ checkUserSession, currentUser }) => {
         <Route path="/shop/" element={<ShopPage />} />
         <Route path="/checkout/" element={<CheckOutPage />} />
         <Route
+          exact
           path="/shop/:collectionId"
           element={<CollectionsPageContainer />}
         />
