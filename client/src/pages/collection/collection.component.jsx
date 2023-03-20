@@ -5,12 +5,10 @@ import { connect } from "react-redux";
 import { selectCollections } from "../../redux/shop/shop.selectors";
 
 import CollectionItem from "../../components/collection-item/collection-item.component";
-import CollectionsContext from "../../contexts/collections/collections.context";
 
 import "./collection.styles.scss";
 
-const CollectionPage = () => {
-  const collections = useContext(CollectionsContext);
+const CollectionPage = ({ collections }) => {
   const { collectionId } = useParams();
 
   useEffect(() => {

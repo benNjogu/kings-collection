@@ -18,6 +18,9 @@ const CartDropdown = ({ cartItems, dispatch }) => {
 
   return (
     <div className="cart-dropdown">
+      <div className="hide-button" onClick={() => dispatch(toggleCartHidden())}>
+        &#10005;
+      </div>
       <div className="cart-items">
         {cartItems.length ? (
           cartItems.map((cartItem) => (
@@ -27,14 +30,18 @@ const CartDropdown = ({ cartItems, dispatch }) => {
           <span className="empty-message">Your cart is empty!</span>
         )}
       </div>
-      <CustomButton
-        onClick={() => {
-          navigate("/checkout");
-          dispatch(toggleCartHidden());
-        }}
-      >
-        GO TO CHECKOUT
-      </CustomButton>
+      {cartItems.length > 0 ? (
+        <CustomButton
+          onClick={() => {
+            navigate("/checkout");
+            dispatch(toggleCartHidden());
+          }}
+        >
+          GO TO CHECKOUT
+        </CustomButton>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

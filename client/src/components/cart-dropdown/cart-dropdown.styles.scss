@@ -10,7 +10,12 @@
   top: 90px;
   right: 40px;
   z-index: 5;
-  align-items: center;
+
+  .hide-button {
+    position: absolute;
+    cursor: pointer;
+    right: 20px;
+  }
 
   .empty-message {
     font-size: 18px;

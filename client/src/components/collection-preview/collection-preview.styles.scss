@@ -11,5 +11,12 @@
   .preview {
     display: flex;
     justify-content: space-between;
+
+    .view-collection {
+      position: absolute;
+      right: 40px;
+      margin-top: 122px;
+      cursor: pointer;
+    }
   }
 }

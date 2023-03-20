@@ -5,6 +5,7 @@ import { createStructuredSelector } from "reselect";
 
 import { selectCurrentUser } from "./redux/user/user.selector";
 import { checkUserSession } from "./redux/user/user.actions";
+import { fetchCollectionsStart } from "./redux/shop/shop.actions";
 
 import SignInAndSignUp from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component";
 import Header from "./components/header/header.componet";
@@ -15,9 +16,10 @@ import CollectionsPageContainer from "./pages/collection/collection.container";
 
 import "./App.css";
 
-const App = ({ checkUserSession, currentUser }) => {
+const App = ({ checkUserSession, fetchCollectionsStart, currentUser }) => {
   useEffect(() => {
     checkUserSession();
+    fetchCollectionsStart();
   }, [checkUserSession]);
 
   return (
@@ -25,7 +27,10 @@ const App = ({ checkUserSession, currentUser }) => {
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/shop/" element={<ShopPage />} />
+        <Route
+          path="/shop/"
+          element={<ShopPage fetchCollectionsStart={fetchCollectionsStart} />}
+        />
         <Route path="/checkout/" element={<CheckOutPage />} />
         <Route
           exact
@@ -50,6 +55,7 @@ const mapStateToProps = createStructuredSelector({
 
 const mapDispatchToProps = (dispatch) => ({
   checkUserSession: () => dispatch(checkUserSession()),
+  fetchCollectionsStart: () => dispatch(fetchCollectionsStart()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

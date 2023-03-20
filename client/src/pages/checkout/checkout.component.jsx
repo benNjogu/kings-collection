@@ -1,4 +1,5 @@
-import React from "react";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
@@ -14,6 +15,14 @@ import StripeCheckoutButton from "./../../components/stripe-button/stripe-button
 import "./checkout.styles.scss";
 
 const CheckOutPage = ({ cartItems, total }) => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (cartItems.length === 0) {
+      navigate("/shop/");
+    }
+  }, [cartItems]);
+
   return (
     <div className="checkout-page">
       <div className="checkout-header">

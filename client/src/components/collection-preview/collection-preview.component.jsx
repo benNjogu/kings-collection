@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 import CollectionItem from "../collection-item/collection-item.component";
+
 import "./collection-preview.styles.scss";
 
 const CollectionPreview = ({ title, items }) => {
@@ -12,10 +13,7 @@ const CollectionPreview = ({ title, items }) => {
   };
 
   return (
-    <div
-      className="collection-preview"
-      onClick={() => handleClick(title.toLowerCase())}
-    >
+    <div className="collection-preview">
       <h1 className="title">{title.toUpperCase()}</h1>
       <div className="preview">
         {items
@@ -23,6 +21,12 @@ const CollectionPreview = ({ title, items }) => {
           .map((item) => (
             <CollectionItem key={item.id} item={item} />
           ))}
+        <div
+          className="view-collection"
+          onClick={() => handleClick(title.toLowerCase())}
+        >
+          &#10095;
+        </div>
       </div>
     </div>
   );
