@@ -1,5 +1,4 @@
-import { SHOP_DATA } from "../../data_store/data";
-import { shopActionsTypes } from "../../constants/actionConstants";
+import { shopActionsTypes } from "../../constants";
 
 const INTIAL_STATE = {
   //collections: SHOP_DATA,

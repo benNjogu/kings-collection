@@ -1,4 +1,3 @@
-import React, { Component } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
@@ -21,4 +20,3 @@ const mapStateToProps = createStructuredSelector({
 });
 
 export default connect(mapStateToProps)(Directory);
-

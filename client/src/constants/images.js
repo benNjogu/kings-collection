@@ -1,5 +1,7 @@
 import logo from "../assets/logo/crown.svg";
 
+import broken from "../assets/images/broken.png";
+
 import hat from "../assets/images/hats.png";
 import jackets from "../assets/images/jackets.png";
 import sneakers from "../assets/images/sneakers.jpg";
@@ -48,6 +50,8 @@ import burgundy from "../assets/images/burgundy.png";
 
 export default {
   logo,
+
+  broken,
 
   hat,
   jackets,

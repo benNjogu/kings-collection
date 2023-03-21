@@ -1,4 +1,4 @@
-import { shopActionsTypes } from "../../constants/actionConstants";
+import { shopActionsTypes } from "../../constants";
 
 export const fetchCollectionsStart = () => ({
   type: shopActionsTypes.FETCH_COLLECTIONS_START,
@@ -13,4 +13,3 @@ export const fetchCollectionsFailure = (errorMessage) => ({
   type: shopActionsTypes.FETCH_COLLECTIONS_FAILURE,
   payload: errorMessage,
 });
-
